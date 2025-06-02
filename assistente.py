@@ -3,7 +3,7 @@ import sys
 import speech_recognition as sr 
 import webbrowser as browser
 import urllib.request, json, requests
-import translateimport urllib.request, json, requests
+import urllib.request, json, requests
 import translate
 from gtts import gTTS
 from playsound import playsound
@@ -67,13 +67,13 @@ def clima(cidade):
 	response = requests.get(complete_url)
 	retorno = response.json()
 	if retorno["cod"] == 200:
-	    valor = retorno["main"]
-	    current_temperature = valor["temp"]
-	    current_humidiy = valor["humidity"]
-	    tempo = retorno["weather"]
-	    weather_description = tempo[0]["description"]
-	    clima = (f"Em {cidade} a temperatura é de {str(int(current_temperature - 273.15))} graus celcius e humidade de {str(current_humidiy)} %")
-	    cria_audio("clima.mp3", clima)
+		valor = retorno["main"]
+		current_temperature = valor["temp"]
+		current_humidiy = valor["humidity"]
+		tempo = retorno["weather"]
+		weather_description = tempo[0]["description"]
+		clima = (f"Em {cidade} a temperatura é de {str(int(current_temperature - 273.15))} graus celcius e humidade de {str(current_humidiy)} %")
+		cria_audio("clima.mp3", clima)
 	else:
 		cria_audio("erro.mp3", "Infelizmente não entendi, pode repetir por favor?")
 
